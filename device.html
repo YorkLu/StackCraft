@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link href="css/device.css" rel="stylesheet">
+</head>
+<body onresize="setWin();">
+<iframe class="device" id="device" src="index.html?jumped=1"></iframe>
+<script src="js/jquery.min.js"></script>
+<script>
+  if (/AppleWebKit.*Mobile/i.test(navigator.userAgent) || (/MIDP|SymbianOS|NOKIA|SAMSUNG|LG|NEC|TCL|Alcatel|BIRD|DBTEL|Dopod|PHILIPS|HAIER|LENOVO|MOT-|Nokia|SonyEricsson|SIE-|Amoi|ZTE/.test(navigator.userAgent))) {
+    if (window.location.href.indexOf("?mobile") < 0) {
+      try {
+        if (/Android/i.test(navigator.userAgent)) {
+          window.location.href = "index.html?jumped=1"
+        }
+        else if (/iPhone|iPod|iPad/i.test(navigator.userAgent)) {
+          window.location.href = "index.html?jumped=1"
+        }
+        else {
+          window.location.href = "index.html?jumped=1"
+        }
+      } catch (e) {
+      }
+    }
+  }
+  var ifRemote = $("#device").get(0);
+  document.title= ifRemote.contentWindow.document.title;
+  function setWin() {
+    $(".device").width(Math.round($(".device").height()*0.5634));
+    $(".device").css("margin-left",($(document.body).outerWidth(true)-$(".device").width()-20)/2);
+//    alert("height: "+$(".device").height());
+  }
+  setWin();
+</script>
+</body>
+</html>

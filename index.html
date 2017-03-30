@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans"> <!-- 更加标准的 lang 属性写法 http://zhi.hu/XyIa -->
+<head>
+  <!-- 声明文档使用的字符编码 -->
+  <meta charset='utf-8'>
+  <!-- 优先使用 IE 最新版本和 Chrome -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="description" content="StackCraft-积木世界"/>
+  <meta name="keywords" content="StackCraft"/>
+  <meta name="author" content="StackCraft"/>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-itunes-app" content="app-id=1069312241, app-argument=youngpai://">
+  <meta name="format-detection" content="telphone=no, email=no"/>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+  <link rel="shortcut icon" type="image/ico" href="pic/sysu.ico"/>
+  <title>StackCraft</title>
+  <link href="css/button.css" rel="stylesheet">
+  <link href="css/share.min.css" rel="stylesheet">
+  <link href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='http://api.youziku.com/webfont/CSS/573b2f5ef629d800b4ff0c69' rel='stylesheet' type='text/css'/>
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+<div class="contain" id="canvasFrame">
+  <canvas id="canvas">抱歉，您的浏览器不支持HTML5</canvas>
+
+  <!--菜单页-->
+  <div id="menuScene">
+    <p class="title center">StackCraft<sup>积木世界 V1.1</sup></p>
+    <a href="javascript:void(null)" id="enterGameBtn"
+       class="button button-3d button-primary button-rounded button-giant">开始</a>
+
+    <div class="bottomBtn center">
+      <button class="button button-3d button-action button-circle button-giant" id="aboutGameBtn">
+        <i class="fa fa-question"></i>
+      </button>
+      <button class="button button-3d button-highlight button-circle button-giant" id="bestScoreBtn">
+        <i class="fa fa-trophy"></i>
+      </button>
+      <button class="button button-3d button-caution button-circle button-giant" id="shareGameBtn">
+        <i class="fa fa-share-alt"></i>
+      </button>
+    </div>
+  </div>
+
+  <!--结果页-->
+  <div id="resultScene">
+    <p class="resultText">游戏结束，得分：<span></span></p>
+
+    <div class="bottomBtn center">
+      <button class="button button-3d button-action button-circle button-giant" id="result2homeBtn">
+        <i class="fa fa-home"></i>
+      </button>
+      <button class="button button-3d button-highlight button-circle button-giant" id="restartBtn">
+        <i class="fa fa-repeat"></i>
+      </button>
+      <button class="button button-3d button-caution button-circle button-giant" id="shareResultBtn">
+        <i class="fa fa-share-alt"></i>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="backdrop hidden"></div>
+<div class="modal hidden aboutGame">
+  <p class="title">关于游戏</p>
+  <p class="content">StackCraft-积木世界——寻找合适的时机放置积木，尽可能把积木叠得更高吧~</p>
+  <p class="content">作者：陆扬（中山大学）</p>
+  <a href="javascript:void(null)" id="exitAboutGameBtn"
+     class="button button-3d button-highlight button-rounded button-block button-large">返回</a>
+</div>
+
+<div class="modal hidden bestScore">
+  <p class="title">最高分</p>
+  <p class="title bestScoreText"></p>
+  <a href="javascript:void(null)" id="exitBestScoreBtn"
+     class="button button-3d button-highlight button-rounded button-block button-large">返回</a>
+</div>
+<div class="modal hidden socialShare">
+  <p class="title">分享到</p>
+  <div class="social-share"></div>
+  <a href="javascript:void(null)" id="exitSocialShareBtn"
+     class="button button-3d button-highlight button-rounded button-block button-large">返回</a>
+</div>
+<script>
+  var canvas = document.getElementById("canvas"),
+          ctx = canvas.getContext("2d");
+
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  var isStartScene = true;
+  var isMenuScene = false;
+  var isGameScene = false;
+  var isResultScene = false;
+
+</script>
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.share.min.js"></script>
+<script src="js/myURL.js"></script>
+<script src="js/stats.min.js"></script>
+<script src="js/CommonFuc.js"></script>
+<script src="js/StartScene.js"></script>
+<script src="js/Brick.js"></script>
+<script src="js/Game.js"></script>
+</body>
+</html>
